@@ -1,3 +1,4 @@
+#!/bin/bash
 
 . env.sh
 
@@ -8,11 +9,11 @@ function log {
 }
 
 if [ $WAVESHARE_EPD75_VERSION = 1 ]; then
-    export WAVESHARE_WIDTH=640
-    export WAVESHARE_HEIGHT=384
+    export WAVESHARE_WIDTH=264
+    export WAVESHARE_HEIGHT=176
 else
-    export WAVESHARE_WIDTH=800
-    export WAVESHARE_HEIGHT=480
+    export WAVESHARE_WIDTH=264
+    export WAVESHARE_HEIGHT=176
 fi
 
 if [ $PRIVACY_MODE = 1 ]; then

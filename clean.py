@@ -25,25 +25,11 @@ else:
 
 try:
     epd = epd7in5.EPD()
-    logging.debug("Initialize screen")
+    logging.info("Initialize screen")
     epd.init()
-
-    # Full screen refresh at 2 AM
-    if datetime.datetime.now().minute == 0 and datetime.datetime.now().hour == 2:
-        logging.debug("Clear screen")
-        epd.Clear()
-
-    filename = sys.argv[1]
-
-    logging.debug("Read image file: " + filename)
-    Himage = Image.open(filename)
-    logging.info("Display image file on screen")
-
-    if waveshare_epd75_version == "2B":
-        Limage_Other = Image.new('1', (epd.height, epd.width), 255)  # 255: clear the frame
-        epd.display(epd.getbuffer(Himage), epd.getbuffer(Limage_Other))
-    else:
-        epd.display(epd.getbuffer(Himage))
+    logging.info("Clear screen")
+    epd.Clear()
+    logging.info("Sleeping epaper")
     epd.sleep()
 
 except IOError as e:
